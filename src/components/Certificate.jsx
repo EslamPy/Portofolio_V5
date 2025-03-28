@@ -173,7 +173,7 @@ const Certificate = ({ ImgSertif }) => {
 							},
 						}}
 						size="large">
-						<CloseIcon sx={{ fontSize: 24 }} />
+						<CloseIcon sx={{ fontSize: 24 }}/>
 					</IconButton>
 
 					{/* Modal Image */}

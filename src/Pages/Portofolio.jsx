@@ -18,32 +18,7 @@ import { Code, Award, Boxes } from "lucide-react";
 
 // Separate ShowMore/ShowLess button component
 const ToggleButton = ({ onClick, isShowingMore }) => (
-  <button
-    onClick={onClick}
-    className="
-      px-3 py-1.5
-      text-slate-300 
-      hover:text-white 
-      text-sm 
-      font-medium 
-      transition-all 
-      duration-300 
-      ease-in-out
-      flex 
-      items-center 
-      gap-2
-      bg-white/5 
-      hover:bg-white/10
-      rounded-md
-      border 
-      border-white/10
-      hover:border-white/20
-      backdrop-blur-sm
-      group
-      relative
-      overflow-hidden
-    "
-  >
+  <button onClick={onClick} className=" px-3 py-1.5 text-slate-300  hover:text-white  text-sm  font-medium  transition-all  duration-300  ease-in-out flex  items-center  gap-2 bg-white/5  hover:bg-white/10 rounded-md border  border-white/10 hover:border-white/20 backdrop-blur-sm group relative overflow-hidden">
     <span className="relative z-10 flex items-center gap-2">
       {isShowingMore ? "See Less" : "See More"}
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform  duration-300  ${isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"}`}>
@@ -56,13 +31,7 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
 
 function TabPanel({ children, value, index, ...other }) {
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
+    <div role="tabpanel" hidden={value !== index} id={`full-width-tabpanel-${index}`} aria-labelledby={`full-width-tab-${index}`} {...other}>
       {value === index && (
         <Box sx={{ p: { xs: 1, sm: 3 } }}>
           <Typography>{children}</Typography>
@@ -105,9 +74,10 @@ const techStacks = [
   { icon: "vercel.svg", language: "Vercel" },
   { icon: "GitHub.png", language: "GitHub" },
   { icon: "GitLab.svg", language: "GitLab" },
-  { icon: "Visual Studio Code.svg", language: "Visual Studio Code" },
-  { icon: "VMware.svg", language: "VMware" },
-  { icon: "AWS.png", language: "AWS" },
+  // { icon: "Visual Studio Code.svg", language: "Visual Studio Code" },
+  // { icon: "VMware.svg", language: "VMware" },
+  // { icon: "AWS.png", language: "AWS" },
+
 ];
 
 export default function FullWidthTabs() {
@@ -180,13 +150,7 @@ export default function FullWidthTabs() {
       {/* Header section - unchanged */}
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="1000">
         <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
-          <span style={{
-            color: '#6366f1',
-            backgroundImage: 'linear-gradient(45deg, #6366f1 10%, #a855f7 93%)',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}>
+          <span style={{ color: '#6366f1', backgroundImage: 'linear-gradient(45deg, #6366f1 10%, #a855f7 93%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
             Portfolio Showcase
           </span>
         </h2>
@@ -198,10 +162,7 @@ export default function FullWidthTabs() {
 
       <Box sx={{ width: "100%" }}>
         {/* AppBar and Tabs section - unchanged */}
-        <AppBar
-          position="static"
-          elevation={0}
-          sx={{
+        <AppBar position="static" elevation={0} sx={{
             bgcolor: "transparent",
             border: "1px solid rgba(255, 255, 255, 0.1)",
             borderRadius: "20px",
@@ -218,17 +179,9 @@ export default function FullWidthTabs() {
               backdropFilter: "blur(10px)",
               zIndex: 0,
             },
-          }}
-          className="md:px-4"
-        >
+          }} className="md:px-4">
           {/* Tabs remain unchanged */}
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            textColor="secondary"
-            indicatorColor="secondary"
-            variant="fullWidth"
-            sx={{
+          <Tabs value={value} onChange={handleChange} textColor="secondary" indicatorColor="secondary" variant="fullWidth" sx={{
               // Existing styles remain unchanged
               minHeight: "70px",
               "& .MuiTab-root": {
@@ -264,57 +217,32 @@ export default function FullWidthTabs() {
               "& .MuiTabs-flexContainer": {
                 gap: "8px",
               },
-            }}
-          >
-            <Tab
-              icon={<Code className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Projects"
-              {...a11yProps(0)}
-            />
-            <Tab
-              icon={<Award className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Certificates"
-              {...a11yProps(1)}
-            />
-            <Tab
-              icon={<Boxes className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Tech Stack"
-              {...a11yProps(2)}
-            />
+            }}>
+
+            <Tab icon={<Code className="mb-2 w-5 h-5 transition-all duration-300"/>} label="Projects"
+              {...a11yProps(0)}/>
+            <Tab icon={<Award className="mb-2 w-5 h-5 transition-all duration-300"/>} label="Certificates"
+              {...a11yProps(1)}/>
+            <Tab icon={<Boxes className="mb-2 w-5 h-5 transition-all duration-300"/>} label="Tech Stack"
+              {...a11yProps(2)}/>
           </Tabs>
         </AppBar>
 
-        <SwipeableViews
-          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-          index={value}
-          onChangeIndex={setValue}
-        >
+        <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
           <TabPanel value={value} index={0} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-5">
                 {displayedProjects.map((project, index) => (
-                  <div
-                    key={project.id || index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
-                    <CardProject
-                      Img={project.Img}
-                      Title={project.Title}
-                      Description={project.Description}
-                      Link={project.Link}
-                      id={project.id}
-                    />
+                  <div key={project.id || index} data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"} data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}>
+                    <CardProject Img={project.Img} Title={project.Title} Description={project.Description} Link={project.Link} id={project.id}/>
                   </div>
                 ))}
               </div>
             </div>
+            
             {projects.length > initialItems && (
               <div className="mt-6 w-full flex justify-start">
-                <ToggleButton
-                  onClick={() => toggleShowMore('projects')}
-                  isShowingMore={showAllProjects}
-                />
+                <ToggleButton onClick={() => toggleShowMore('projects')} isShowingMore={showAllProjects}/>
               </div>
             )}
           </TabPanel>
@@ -323,11 +251,7 @@ export default function FullWidthTabs() {
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
                 {displayedCertificates.map((certificate, index) => (
-                  <div
-                    key={index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
+                  <div key={index} data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"} data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}>
                     <Certificate ImgSertif={certificate.Img} />
                   </div>
                 ))}
@@ -335,10 +259,7 @@ export default function FullWidthTabs() {
             </div>
             {certificates.length > initialItems && (
               <div className="mt-6 w-full flex justify-start">
-                <ToggleButton
-                  onClick={() => toggleShowMore('certificates')}
-                  isShowingMore={showAllCertificates}
-                />
+                <ToggleButton onClick={() => toggleShowMore('certificates')} isShowingMore={showAllCertificates}/>
               </div>
             )}
           </TabPanel>
@@ -347,12 +268,8 @@ export default function FullWidthTabs() {
             <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
                 {techStacks.map((stack, index) => (
-                  <div
-                    key={index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
-                    <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
+                  <div key={index} data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"} data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}>
+                    <TechStackIcon TechStackIcon={stack.icon} Language={stack.language}/>
                   </div>
                 ))}
               </div>
